@@ -36,6 +36,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     */
 };
 
+void suspend_power_down_user(void) {
+    rgb_matrix_set_suspend_state(true);
+}
+
+void suspend_wakeup_init_user(void) {
+    rgb_matrix_set_suspend_state(false);
+}
+
 #define MODS_SHIFT  (get_mods() & MOD_BIT(KC_LSHIFT) || get_mods() & MOD_BIT(KC_RSHIFT))
 #define MODS_CTRL  (get_mods() & MOD_BIT(KC_LCTL) || get_mods() & MOD_BIT(KC_RCTRL))
 #define MODS_ALT  (get_mods() & MOD_BIT(KC_LALT) || get_mods() & MOD_BIT(KC_RALT))
